@@ -39,7 +39,7 @@ export default function OnboardingPage() {
 
               <div>
                 <label className="block mb-2">Available Space</label>
-                <p className="text-sm text-gray-400 mb-4">How much space do you have for your workspace?</p>
+                <p className="text-sm text-gray-400 mb-4">How much space do you have?</p>
                 <RadioGroup defaultValue="medium" className="grid grid-cols-3 gap-4">
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="small" id="small" />
@@ -61,58 +61,100 @@ export default function OnboardingPage() {
           {/* Physical Considerations */}
           <Card className="bg-[#141415] border-gray-800 p-6">
             <h2 className="text-xl font-semibold mb-6">Physical Considerations</h2>
-            <div className="space-y-4">
-              <label className="block mb-2">Do you have any specific physical considerations?</label>
-              <p className="text-sm text-gray-400 mb-4">Select all that apply</p>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { id: "back-pain", label: "Back Pain/Discomfort" },
-                  { id: "wrist-strain", label: "Wrist/Hand Strain" },
-                  { id: "neck-pain", label: "Neck/Shoulder Pain" },
-                  { id: "eye-strain", label: "Eye Strain" },
-                  { id: "limited-mobility", label: "Limited Mobility" },
-                  { id: "standing", label: "Prefer Standing" },
-                ].map((item) => (
-                  <div key={item.id} className="flex items-center space-x-2">
-                    <Checkbox id={item.id} />
-                    <label htmlFor={item.id} className="text-sm">{item.label}</label>
-                  </div>
-                ))}
-              </div>
+            <p className="text-sm text-gray-400 mb-4">Select all that apply</p>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { id: "backPain", label: "Back Pain/Discomfort" },
+                { id: "wristStrain", label: "Wrist/Hand Strain" },
+                { id: "neckPain", label: "Neck/Shoulder Pain" },
+                { id: "eyeStrain", label: "Eye Strain" },
+                { id: "limitedMobility", label: "Limited Mobility" },
+                { id: "preferStanding", label: "Prefer Standing" }
+              ].map((condition) => (
+                <div key={condition.id} className="flex items-center space-x-2">
+                  <Checkbox id={condition.id} />
+                  <label htmlFor={condition.id} className="text-sm">
+                    {condition.label}
+                  </label>
+                </div>
+              ))}
             </div>
           </Card>
 
           {/* Equipment & Setup */}
           <Card className="bg-[#141415] border-gray-800 p-6">
             <h2 className="text-xl font-semibold mb-6">Equipment & Setup</h2>
-            <div className="space-y-4">
-              <label className="block mb-2">What equipment will you need in your workspace?</label>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { id: "adjustable-desk", label: "Adjustable Desk" },
-                  { id: "monitor-arm", label: "Monitor Arm" },
-                  { id: "footrest", label: "Footrest" },
-                  { id: "ergo-keyboard", label: "Ergonomic Keyboard" },
-                  { id: "ergo-mouse", label: "Ergonomic Mouse" },
-                  { id: "task-lighting", label: "Task Lighting" },
-                  { id: "storage", label: "Storage Solutions" },
-                  { id: "whiteboard", label: "Whiteboard/Planning Space" },
-                ].map((item) => (
-                  <div key={item.id} className="flex items-center space-x-2">
-                    <Checkbox id={item.id} />
-                    <label htmlFor={item.id} className="text-sm">{item.label}</label>
+            <p className="text-sm text-gray-400 mb-4">What equipment will you need?</p>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { id: "adjustableDesk", label: "Adjustable Desk" },
+                { id: "monitorArm", label: "Monitor Arm" },
+                { id: "footrest", label: "Footrest" },
+                { id: "ergoKeyboard", label: "Ergonomic Keyboard" },
+                { id: "ergoMouse", label: "Ergonomic Mouse" },
+                { id: "taskLighting", label: "Task Lighting" },
+                { id: "storage", label: "Storage Solutions" },
+                { id: "whiteboard", label: "Whiteboard/Planning Space" }
+              ].map((equipment) => (
+                <div key={equipment.id} className="flex items-center space-x-2">
+                  <Checkbox id={equipment.id} />
+                  <label htmlFor={equipment.id} className="text-sm">
+                    {equipment.label}
+                  </label>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* Environmental Preferences */}
+          <Card className="bg-[#141415] border-gray-800 p-6">
+            <h2 className="text-xl font-semibold mb-6">Environmental Preferences</h2>
+            <div className="space-y-6">
+              <div>
+                <label className="block mb-2">Lighting Preferences</label>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="flex items-center space-x-2">
+                    <Checkbox id="naturalLight" />
+                    <label htmlFor="naturalLight" className="text-sm">Natural Light</label>
                   </div>
-                ))}
+                  <div className="flex items-center space-x-2">
+                    <Checkbox id="taskLighting" />
+                    <label htmlFor="taskLighting" className="text-sm">Task Lighting</label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Checkbox id="ambientLighting" />
+                    <label htmlFor="ambientLighting" className="text-sm">Ambient Lighting</label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Checkbox id="dimmableLights" />
+                    <label htmlFor="dimmableLights" className="text-sm">Dimmable Lights</label>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label className="block mb-2">Noise Level Preference</label>
+                <RadioGroup defaultValue="moderate" className="space-y-2">
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="quiet" id="quiet" />
+                    <label htmlFor="quiet">Quiet Environment</label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="moderate" id="moderate" />
+                    <label htmlFor="moderate">Moderate Background Noise</label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="active" id="active" />
+                    <label htmlFor="active">Active/Busy Environment</label>
+                  </div>
+                </RadioGroup>
               </div>
             </div>
           </Card>
-        </div>
 
-        <div className="flex justify-center">
           <Button 
-            size="lg"
             onClick={() => router.push('/workspace/customize')}
-            className="bg-white text-black hover:bg-gray-200"
+            className="w-full"
           >
             Generate My Workspace Layout
           </Button>
@@ -120,4 +162,4 @@ export default function OnboardingPage() {
       </div>
     </div>
   );
-} 
+}
