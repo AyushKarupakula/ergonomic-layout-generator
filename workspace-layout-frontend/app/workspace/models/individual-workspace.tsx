@@ -1,9 +1,11 @@
 "use client";
 import { useRef } from "react";
 import { RoundedBox } from "@react-three/drei";
+import * as THREE from "three";
+import type { Group } from "three";
 
 export const IndividualWorkspace = () => {
-  const deskRef = useRef<THREE.Group>(null);
+  const deskRef = useRef<Group>(null);
 
   return (
     <group position={[0, 0, 0]} scale={1.5}>
