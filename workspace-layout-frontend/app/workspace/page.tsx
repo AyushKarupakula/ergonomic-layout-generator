@@ -22,11 +22,18 @@ import { CollaborativeWorkspace, collaborativeConfig } from "./models/collaborat
 import { HybridWorkspace, hybridConfig } from "./models/hybrid-workspace";
 import { WorkspaceViewer } from "./components/workspace-viewer";
 
-const workspaceConfigs = {
+type WorkspaceConfig = {
+  title: string;
+  description: string;
+  dimensions: Record<string, string>;
+  specs: Record<string, Record<string, string>>;
+};
+
+const workspaceConfigs: Record<string, WorkspaceConfig & { Model: React.ComponentType }> = {
   individual: { ...individualConfig, Model: IndividualWorkspace },
   collaborative: { ...collaborativeConfig, Model: CollaborativeWorkspace },
   hybrid: { ...hybridConfig, Model: HybridWorkspace }
-} as const;
+};
 
 export default function WorkspacePage() {
   const searchParams = useSearchParams();
