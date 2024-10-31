@@ -1,12 +1,17 @@
 "use client";
 import { useRef } from "react";
-import { RoundedBox } from "@react-three/drei";
 import * as THREE from "three";
 
 export const IndividualWorkspace = () => {
-  const deskRef = useRef();
-
-  // ... rest of the code remains the same
+  return (
+    <group>
+      {/* Individual workspace model implementation */}
+      <mesh>
+        <boxGeometry args={[1, 1, 1]} />
+        <meshStandardMaterial color="#4a5568" />
+      </mesh>
+    </group>
+  );
 };
 
 export const individualConfig = {
