@@ -14,7 +14,6 @@ import {
   Headphones,
   Zap,
   Shield,
-  Clock,
   Sparkles,
   Download,
   PencilRuler
@@ -29,13 +28,12 @@ const workspaceConfigs = {
   individual: { ...individualConfig, Model: IndividualWorkspace },
   collaborative: { ...collaborativeConfig, Model: CollaborativeWorkspace },
   hybrid: { ...hybridConfig, Model: HybridWorkspace }
-};
+} as const;
 
 export default function WorkspacePage() {
   const searchParams = useSearchParams();
   const workspaceType = searchParams.get('type') || 'individual';
   const config = workspaceConfigs[workspaceType as keyof typeof workspaceConfigs];
-  const WorkspaceModel = config.Model;
 
   return (
     <div className="min-h-screen bg-[#0A0A0B] text-white p-6">
@@ -79,7 +77,7 @@ export default function WorkspacePage() {
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-xl font-semibold">Workspace Layout</h2>
                 <div className="text-sm text-gray-400">
-                  Drag to rotate • Scroll to zoom • Shift + drag to pan
+                  Drag to rotate &bull; Scroll to zoom &bull; Shift + drag to pan
                 </div>
               </div>
               <div className="bg-[#1A1A1B] rounded-lg h-[600px]">
@@ -96,8 +94,8 @@ export default function WorkspacePage() {
                 { icon: ThermometerSun, title: "Climate Control", desc: "Perfect temperature" },
                 { icon: Headphones, title: "Acoustic Design", desc: "Noise optimization" },
                 { icon: Shield, title: "Ergonomic Setup", desc: "Health-focused design" },
-              ].map((feature, i) => (
-                <Card key={i} className="bg-[#141415] border-gray-800 p-4 hover:bg-[#1A1A1B] transition-colors">
+              ].map((feature) => (
+                <Card key={feature.title} className="bg-[#141415] border-gray-800 p-4 hover:bg-[#1A1A1B] transition-colors">
                   <div className="flex items-start gap-3">
                     <div className="bg-blue-500/10 p-2 rounded-lg">
                       <feature.icon className="w-5 h-5 text-blue-400" />
