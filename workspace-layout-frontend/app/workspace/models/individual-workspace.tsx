@@ -7,6 +7,14 @@ import type { Group } from "three";
 export const IndividualWorkspace = () => {
   const deskRef = useRef<Group>(null);
 
+  // Define desk leg positions with proper typing
+  const deskLegPositions: [number, number, number][] = [
+    [-0.7, -0.35, 0.35],
+    [0.7, -0.35, 0.35],
+    [-0.7, -0.35, -0.35],
+    [0.7, -0.35, -0.35]
+  ];
+
   return (
     <group position={[0, 0, 0]} scale={1.5}>
       {/* Room Structure */}
@@ -67,8 +75,8 @@ export const IndividualWorkspace = () => {
         </RoundedBox>
 
         {/* Desk Legs */}
-        {[[-0.7, -0.35, 0.35], [0.7, -0.35, 0.35], [-0.7, -0.35, -0.35], [0.7, -0.35, -0.35]].map((pos, i) => (
-          <mesh key={i} position={pos} castShadow>
+        {deskLegPositions.map((pos, i) => (
+          <mesh key={i} position={pos as [number, number, number]} castShadow>
             <cylinderGeometry args={[0.04, 0.04, 0.7]} />
             <meshPhysicalMaterial color="#303030" metalness={0.9} roughness={0.1} />
           </mesh>
