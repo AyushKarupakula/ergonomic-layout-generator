@@ -2,9 +2,7 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { 
-  OrbitControls, 
-  PerspectiveCamera,
-  Stage
+  OrbitControls
 } from "@react-three/drei";
 import { IndividualWorkspace } from "../models/individual-workspace";
 import { CollaborativeWorkspace } from "../models/collaborative-workspace";
@@ -46,7 +44,6 @@ export function WorkspaceViewer({ type }: WorkspaceViewerProps) {
           <group position={[0, 0, 0]}>
             <WorkspaceModel />
           </group>
-
         </Suspense>
 
         <OrbitControls 

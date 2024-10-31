@@ -1,12 +1,10 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import { useState, Suspense } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { 
   Ruler, 
   Maximize2, 
-  Settings,
   Monitor,
   Lightbulb,
   Wifi,
