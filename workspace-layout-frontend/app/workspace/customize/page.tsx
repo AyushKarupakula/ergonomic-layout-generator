@@ -1,9 +1,11 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 
 export default function CustomizePage() {
-  const router = useRouter();
-  // ... rest of the component
+  return (
+    <div>
+      <h1>Customize Page</h1>
+      {/* Add your customization content here */}
+    </div>
+  );
 } 

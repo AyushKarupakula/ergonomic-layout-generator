@@ -1,6 +1,4 @@
 "use client";
-import { useRef } from "react";
-import * as THREE from "three";
 
 export const CollaborativeWorkspace = () => {
   return (
