@@ -1,11 +1,34 @@
 "use client";
-import { useRef } from "react";
+import * as THREE from "three";
 import { RoundedBox } from "@react-three/drei";
 
 export const HybridWorkspace = () => {
   return (
     <group position={[0, 0, 0]} scale={1.5}>
-      // ... rest of the code remains the same
+      {/* Implementation of hybrid workspace */}
+      <group>
+        {/* Hot Desks */}
+        {[-2, 0, 2].map((x) => (
+          <mesh key={x} position={[x, 0.4, 0]}>
+            <boxGeometry args={[1.6, 0.05, 0.8]} />
+            <meshStandardMaterial color="#4a5568" />
+          </mesh>
+        ))}
+        {/* Collaboration Space */}
+        <mesh position={[0, 0.4, -2]}>
+          <boxGeometry args={[3, 0.05, 1.5]} />
+          <meshStandardMaterial color="#2d3748" />
+        </mesh>
+        {/* Privacy Booths */}
+        {[-2.5, 2.5].map((x) => (
+          <group key={`booth-${x}`} position={[x, 0.8, -3]}>
+            <mesh>
+              <boxGeometry args={[1.2, 1.6, 1.2]} />
+              <meshStandardMaterial color="#1a202c" opacity={0.5} transparent />
+            </mesh>
+          </group>
+        ))}
+      </group>
     </group>
   );
 };

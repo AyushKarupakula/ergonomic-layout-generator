@@ -1,11 +1,32 @@
 "use client";
-import { useRef } from "react";
+import * as THREE from "three";
 import { RoundedBox } from "@react-three/drei";
 
 export const CollaborativeWorkspace = () => {
   return (
     <group position={[0, 0, 0]} scale={1.5}>
-      // ... rest of the code remains the same
+      {/* Implementation of collaborative workspace */}
+      <group>
+        {/* Multiple Desks */}
+        {[-1.2, 1.2].map((x) => (
+          <mesh key={x} position={[x, 0.4, 0]}>
+            <boxGeometry args={[1.6, 0.05, 0.8]} />
+            <meshStandardMaterial color="#4a5568" />
+          </mesh>
+        ))}
+        {/* Meeting Table */}
+        <mesh position={[0, 0.4, -1.5]}>
+          <cylinderGeometry args={[1, 1, 0.05, 32]} />
+          <meshStandardMaterial color="#2d3748" />
+        </mesh>
+        {/* Chairs */}
+        {[-1.2, 0, 1.2].map((x) => (
+          <mesh key={`chair-${x}`} position={[x, 0.3, -1.5]}>
+            <boxGeometry args={[0.5, 0.5, 0.5]} />
+            <meshStandardMaterial color="#2d3748" />
+          </mesh>
+        ))}
+      </group>
     </group>
   );
 };
