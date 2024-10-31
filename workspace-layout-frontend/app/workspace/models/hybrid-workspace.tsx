@@ -1,6 +1,5 @@
 "use client";
 import * as THREE from "three";
-import { RoundedBox } from "@react-three/drei";
 
 export const HybridWorkspace = () => {
   return (
