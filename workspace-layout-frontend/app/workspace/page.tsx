@@ -22,6 +22,8 @@ import { CollaborativeWorkspace, collaborativeConfig } from "./models/collaborat
 import { HybridWorkspace, hybridConfig } from "./models/hybrid-workspace";
 import { WorkspaceViewer } from "./components/workspace-viewer";
 
+type WorkspaceType = "individual" | "collaborative" | "hybrid";
+
 type WorkspaceConfig = {
   title: string;
   description: string;
@@ -29,7 +31,7 @@ type WorkspaceConfig = {
   specs: Record<string, Record<string, string>>;
 };
 
-const workspaceConfigs: Record<string, WorkspaceConfig & { Model: React.ComponentType }> = {
+const workspaceConfigs: Record<WorkspaceType, WorkspaceConfig & { Model: React.ComponentType }> = {
   individual: { ...individualConfig, Model: IndividualWorkspace },
   collaborative: { ...collaborativeConfig, Model: CollaborativeWorkspace },
   hybrid: { ...hybridConfig, Model: HybridWorkspace }
@@ -37,8 +39,8 @@ const workspaceConfigs: Record<string, WorkspaceConfig & { Model: React.Componen
 
 export default function WorkspacePage() {
   const searchParams = useSearchParams();
-  const workspaceType = searchParams.get('type') || 'individual';
-  const config = workspaceConfigs[workspaceType as keyof typeof workspaceConfigs];
+  const workspaceType = (searchParams.get('type') || 'individual') as WorkspaceType;
+  const config = workspaceConfigs[workspaceType];
 
   return (
     <div className="min-h-screen bg-[#0A0A0B] text-white p-6">
@@ -86,7 +88,7 @@ export default function WorkspacePage() {
                 </div>
               </div>
               <div className="bg-[#1A1A1B] rounded-lg h-[600px]">
-                <WorkspaceViewer type={workspaceType as keyof typeof workspaceConfigs} />
+                <WorkspaceViewer type={workspaceType} />
               </div>
             </Card>
 
