@@ -99,10 +99,11 @@ export const IndividualWorkspace = () => {
           {/* Screen */}
           <mesh position={[0, 0, 0.011]}>
             <planeGeometry args={[0.52, 0.32]} />
-            <meshBasicMaterial 
+            <meshStandardMaterial 
               color="#ffffff"
               emissive="#ffffff"
               emissiveIntensity={0.2}
+              toneMapped={false}
             />
           </mesh>
           {/* Stand */}
