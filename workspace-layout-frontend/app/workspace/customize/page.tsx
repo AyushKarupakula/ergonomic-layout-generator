@@ -65,7 +65,7 @@ export default function CustomizePage() {
     <div className="min-h-screen bg-[#0A0A0B] text-white p-6">
       <div className="max-w-5xl mx-auto space-y-8">
         <div className="text-center space-y-4">
-          <h1 className="text-3xl font-bold">Choose Your Layout Style</h1>
+          <h1 className="text-3xl font-bold text-white">Choose Your Layout Style</h1>
           <p className="text-gray-400">Select the workspace configuration that best suits your needs</p>
         </div>
 
@@ -84,7 +84,7 @@ export default function CustomizePage() {
                   <div className="bg-blue-500/10 w-12 h-12 rounded-lg flex items-center justify-center">
                     <Icon className="w-6 h-6 text-blue-400" />
                   </div>
-                  <h3 className="text-xl font-semibold">{layout.name}</h3>
+                  <h3 className="text-xl font-semibold text-white">{layout.name}</h3>
                   <p className="text-gray-400 text-sm">{layout.description}</p>
                   <ul className="space-y-2">
                     {layout.features.map((feature, index) => (
@@ -104,7 +104,7 @@ export default function CustomizePage() {
           <Button
             variant="outline"
             onClick={() => router.back()}
-            className="mr-4"
+            className="mr-4 bg-gray-800 border-gray-600 text-gray-300 hover:text-white hover:bg-gray-700 hover:border-gray-500"
           >
             Back to Preferences
           </Button>

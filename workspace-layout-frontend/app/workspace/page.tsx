@@ -53,21 +53,21 @@ function WorkspaceContent() {
               <div className="bg-blue-500/10 p-2 rounded-lg">
                 <Sparkles className="w-6 h-6 text-blue-400" />
               </div>
-              <h1 className="text-3xl font-bold">{config.title}</h1>
+              <h1 className="text-3xl font-bold text-white">{config.title}</h1>
             </div>
             <p className="text-gray-400 max-w-xl">{config.description}</p>
           </div>
           <div className="flex gap-3">
             <Button 
               variant="outline" 
-              className="gap-2"
+              className="gap-2 bg-gray-800 border-gray-600 text-gray-300 hover:text-white hover:bg-gray-700 hover:border-gray-500"
               onClick={() => window.print()}
             >
               <Download className="w-4 h-4" />
               Export Layout
             </Button>
             <Button 
-              className="gap-2"
+              className="gap-2 text-white bg-blue-600 hover:bg-blue-700"
               onClick={() => window.location.href = '/onboarding'}
             >
               <PencilRuler className="w-4 h-4" />
@@ -83,7 +83,7 @@ function WorkspaceContent() {
             {/* 3D Viewer */}
             <Card className="bg-[#141415] border-gray-800 p-6">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-semibold">Workspace Layout</h2>
+                <h2 className="text-xl font-semibold text-white">Workspace Layout</h2>
                 <div className="text-sm text-gray-400">
                   Drag to rotate &bull; Scroll to zoom &bull; Shift + drag to pan
                 </div>
@@ -109,7 +109,7 @@ function WorkspaceContent() {
                       <feature.icon className="w-5 h-5 text-blue-400" />
                     </div>
                     <div>
-                      <h3 className="font-medium">{feature.title}</h3>
+                      <h3 className="font-medium text-white">{feature.title}</h3>
                       <p className="text-sm text-gray-400">{feature.desc}</p>
                     </div>
                   </div>
@@ -122,30 +122,30 @@ function WorkspaceContent() {
           <div className="space-y-6">
             {/* Quick Stats */}
             <Card className="bg-[#141415] border-gray-800 p-6">
-              <h3 className="text-lg font-semibold mb-4">Quick Overview</h3>
+              <h3 className="text-lg font-semibold mb-4 text-white">Quick Overview</h3>
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-[#1A1A1B] p-3 rounded-lg">
                   <p className="text-sm text-gray-400">Floor Space</p>
-                  <p className="text-xl font-semibold">7.2m²</p>
+                  <p className="text-xl font-semibold text-white">7.2m²</p>
                 </div>
                 <div className="bg-[#1A1A1B] p-3 rounded-lg">
                   <p className="text-sm text-gray-400">Power Points</p>
-                  <p className="text-xl font-semibold">8 Units</p>
+                  <p className="text-xl font-semibold text-white">8 Units</p>
                 </div>
                 <div className="bg-[#1A1A1B] p-3 rounded-lg">
                   <p className="text-sm text-gray-400">Light Level</p>
-                  <p className="text-xl font-semibold">650 lux</p>
+                  <p className="text-xl font-semibold text-white">650 lux</p>
                 </div>
                 <div className="bg-[#1A1A1B] p-3 rounded-lg">
                   <p className="text-sm text-gray-400">Noise Level</p>
-                  <p className="text-xl font-semibold">45 dB</p>
+                  <p className="text-xl font-semibold text-white">45 dB</p>
                 </div>
               </div>
             </Card>
 
             {/* Dimensions Card */}
             <Card className="bg-[#141415] border-gray-800 p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+              <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-white">
                 <Ruler className="w-5 h-5 text-blue-400" />
                 Room Dimensions
               </h3>
@@ -153,7 +153,7 @@ function WorkspaceContent() {
                 {Object.entries(config.dimensions).map(([key, value]) => (
                   <div key={key} className="flex justify-between items-center p-2 bg-[#1A1A1B] rounded-lg">
                     <span className="text-gray-400 capitalize">{key}</span>
-                    <span className="font-medium">{value}</span>
+                    <span className="font-medium text-white">{value}</span>
                   </div>
                 ))}
               </div>
@@ -161,14 +161,14 @@ function WorkspaceContent() {
 
             {/* Equipment Specifications */}
             <Card className="bg-[#141415] border-gray-800 p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+              <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-white">
                 <Maximize2 className="w-5 h-5 text-blue-400" />
                 Equipment Details
               </h3>
               <div className="space-y-4">
                 {Object.entries(config.specs).map(([category, specs]) => (
                   <div key={category} className="bg-[#1A1A1B] p-3 rounded-lg">
-                    <h4 className="font-medium mb-2 capitalize flex items-center gap-2">
+                    <h4 className="font-medium mb-2 capitalize flex items-center gap-2 text-white">
                       <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
                       {category}
                     </h4>
@@ -176,7 +176,7 @@ function WorkspaceContent() {
                       {Object.entries(specs).map(([key, value]) => (
                         <div key={key} className="flex justify-between text-sm">
                           <span className="text-gray-400">{key}</span>
-                          <span>{value.toString()}</span>
+                          <span className="text-white">{value.toString()}</span>
                         </div>
                       ))}
                     </div>
@@ -194,11 +194,11 @@ function WorkspaceContent() {
               <div className="space-y-2">
                 <div className="flex justify-between items-center p-2 bg-[#1A1A1B] rounded-lg">
                   <span className="text-gray-400">Daily Average</span>
-                  <span className="font-medium">1.2 kWh</span>
+                  <span className="font-medium text-white">1.2 kWh</span>
                 </div>
                 <div className="flex justify-between items-center p-2 bg-[#1A1A1B] rounded-lg">
                   <span className="text-gray-400">Monthly Estimate</span>
-                  <span className="font-medium">36 kWh</span>
+                  <span className="font-medium text-white">36 kWh</span>
                 </div>
               </div>
             </Card>
